@@ -7,8 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
 
-
-<!-- Header -->
 <header>
   <h1>🍽 Kenangan Rasa</h1>
   <nav>
@@ -16,8 +14,6 @@
     <a href="#pesan">Pesan</a>
   </nav>
 </header>
-
-<!-- Hero -->
 <div class="hero">
   <h2>Selamat Datang!</h2>
   <p>Menu Lezat, Harga Bersahabat 🍜</p>
@@ -100,11 +96,8 @@
     <h3>Es Jeruk Manis</h3>
     <p>Rp 5.000</p>
   </div>
-
-
 </section>
 
-<!-- Pop-up Menu -->
 <div class="popup" id="popup">
   <div class="popup-content">
     <img id="popup-img" src="" alt="Menu">
@@ -114,7 +107,6 @@
   </div>
 </div>
 
-<!-- Form Pemesanan -->
 <section id="pesan" class="form-section">
   <h3>Form Pemesanan</h3>
   <form onsubmit="event.preventDefault(); alert('Pesanan Anda telah dikirim. Terima kasih!');">
@@ -133,14 +125,12 @@
       <label><input type="checkbox" name="menu" value="Es Teh Manis / Hangat"> Es Teh Manis / Hangat</label>
       <label><input type="checkbox" name="menu" value="Es Jeruk Manis"> Es Jeruk Manis</label>
 
-      <!-- Tambahkan checkbox menu lainnya -->
     </div>
     <input type="number" placeholder="Jumlah total pesanan" min="1" required />
     <button type="submit">Kirim Pesanan</button>
   </form>
 </section>
 
-<!-- Footer -->
 <footer>
   <div class="container">
     <div>
@@ -165,7 +155,6 @@
   </div>
 </footer>
 
-<!-- Script Pop-up -->
 <script>
   function showPopup(title, price, img) {
     document.getElementById('popup-title').textContent = title;
