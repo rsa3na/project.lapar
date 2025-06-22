@@ -239,6 +239,7 @@
   <h1>🍽 Kenangan Rasa</h1>
   <nav>
     <a href="#menu">Menu</a>
+    <a href="#review">Review</a>
     <a href="#pesan">Pesan</a>
   </nav>
 </header>
@@ -350,28 +351,15 @@
 </div>
 
 <!-- Form Pemesanan -->
-<section id="pesan" class="form-section">
-  <h3>Form Pemesanan</h3>
-  <form onsubmit="event.preventDefault(); alert('Pesanan Anda telah dikirim. Terima kasih!');">
-    <input type="text" placeholder="Nama Lengkap" required />
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; text-align: left; margin-top: 20px;">
-      <label><input type="checkbox" name="menu" value="Nasi Goreng"> Nasi Goreng</label>
-  <label><input type="checkbox" name="menu" value="Nasi Remes"> Nasi Remes</label>
-      <label><input type="checkbox" name="menu" value="Nasi Kebuli"> Nasi Kebuli</label>
-      <label><input type="checkbox" name="menu" value="Nasi Arab"> Nasi Arab</label>
-      <label><input type="checkbox" name="menu" value="Ayam Geprek"> Ayam Geprek</label>
-      <label><input type="checkbox" name="menu" value="Ayam Bakar"> Ayam Bakar</label>
-      <label><input type="checkbox" name="menu" value="Ikan Bakar"> Ikan Bakar</label>
-      <label><input type="checkbox" name="menu" value="Bebek Bakar"> Bebek Bakar</label>
-      <label><input type="checkbox" name="menu" value="Soto"> Soto</label>
-      <label><input type="checkbox" name="menu" value="Indomie Goreng"> Indomie Goreng</label>
-      <label><input type="checkbox" name="menu" value="Es Teh Manis / Hangat"> Es Teh Manis / Hangat</label>
-      <label><input type="checkbox" name="menu" value="Es Jeruk Manis"> Es Jeruk Manis</label>
-    </div>
+</section>  <section id="pesan" class="form-section">
+    <h2>Form Pemesanan</h2>
+    <form onsubmit="event.preventDefault(); alert('Pesanan Anda telah dikirim!');">
+      <input type="text" placeholder="Nama Lengkap" required />
+      <input type="text" placeholder="Menu yang Dipesan" required />
+      <input type="number" placeholder="Jumlah" required />
+      <button type="submit">Kirim Pesanan</button>
+    </form>
     
-    <input type="number" placeholder="Jumlah total pesanan" min="1" required />
-    <button type="submit">Kirim Pesanan</button>
-  </form>
 </section>
 <!-- Review Pelanggan -->
 <section style="background: #fffaf4; padding: 60px 20px; text-align: center;">
