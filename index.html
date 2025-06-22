@@ -82,19 +82,18 @@
     }
 
     .menu {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 40px 30px;
-      justify-content: center;
-    }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px 30px;
+}
 
     .menu-item {
       background: white;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 220px;
+      width: 100%;
       text-align: center;
       transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
