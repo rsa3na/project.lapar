@@ -6,110 +6,123 @@
   <title>Kenangan Rasa</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: #fffaf4;
       color: #333;
+      scroll-behavior: smooth;
     }
+
+    /* Modern Header */
     header {
-      background: #ff6b6b;
-      padding: 15px 30px;
-      color: white;
+      background-color: #ff6b6b;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 15px 30px;
+      color: white;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
     nav a {
-      margin: 0 10px;
       color: white;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s;
     }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
     .hero {
       position: relative;
       background: url(https://www.unileverfoodsolutions.co.id/dam/ufs-id/id/articles/makanan-khas-jawa-tengah-paling-enak/Header%20preview.jpg) center/cover no-repeat;
+      padding: 120px 20px;
       color: white;
       text-align: center;
-      padding: 120px 20px;
     }
+
     .hero::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
     }
-    .hero * {
+
+    .hero h2, .hero p, .hero button {
       position: relative;
       z-index: 1;
     }
-    .hero h2 {
-      font-size: 2.5rem;
-    }
+
     .hero button {
-      margin-top: 20px;
       padding: 10px 20px;
+      font-size: 1rem;
+      background: #ffcf56;
+      color: #333;
       border: none;
       border-radius: 8px;
-      background: #ffc045;
-      color: #333;
       cursor: pointer;
-      font-size: 1rem;
+      margin-top: 15px;
     }
+
+    .hero button:hover {
+      background: #ffc045;
+    }
+
     .menu {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 20px;
-      padding: 40px 20px;
+      padding: 40px 30px;
+      justify-content: center;
     }
+
     .menu-item {
-      width: 220px;
       background: white;
-      padding: 15px;
+      padding: 20px;
       border-radius: 12px;
-      text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 220px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
     }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
     .menu-item img {
       width: 100%;
       height: 150px;
       object-fit: cover;
       border-radius: 8px;
+      margin-bottom: 12px;
     }
-    .popup {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .popup-content {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      text-align: center;
-      width: 300px;
-    }
-    .popup img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
+
     .form-section {
-      background: #fff1e6;
-      padding: 60px 20px;
+      padding: 40px 20px;
       text-align: center;
+      background: #fff1e6;
     }
+
+    .form-section h3 {
+      margin-bottom: 20px;
+    }
+
     form {
       max-width: 500px;
       margin: auto;
@@ -117,62 +130,111 @@
       flex-direction: column;
       gap: 15px;
     }
+
     input, button {
       padding: 10px;
+      border: 1px solid #ddd;
       border-radius: 8px;
+      font-family: inherit;
       font-size: 1rem;
-      border: 1px solid #ccc;
     }
-    form button {
+
+    button {
       background: #ff6b6b;
       color: white;
       border: none;
       cursor: pointer;
     }
-    .review-section {
-      background: #fffaf4;
-      padding: 60px 20px;
-      text-align: center;
+
+    button:hover {
+      background: #e65959;
     }
-    .review-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .review-box {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      width: 280px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .review-box img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
+
+    /* Modern Footer */
     footer {
-      background: #333;
+      background-color: #333;
       color: white;
       padding: 40px 20px;
-      text-align: center;
     }
-    @media(max-width: 600px){
-      .menu-item {
-        width: 100%;
+
+    footer .container {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    footer div {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px 0;
+    }
+
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer .bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    /* Pop-up */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      width: 300px;
+    }
+
+    .popup img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 80px 20px;
       }
-      .review-container {
+
+      .menu-item {
+        width: 90%;
+      }
+
+      header {
         flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
+
 
 <header>
   <h2>Kenangan Rasa</h2>
@@ -184,8 +246,8 @@
 </header>
 
 <section class="hero">
-  <h2>Selamat Datang!</h2>
-  <p>Menu Lezat, Harga Bersahabat 🍛</p>
+  <h2>Kenangan Rasa!</h2>
+  <p>Ketika Lapar Menjadi Cerita</p>
   <button onclick="document.getElementById('pesan').scrollIntoView({behavior:'smooth'})">Pesan Sekarang</button>
 </section>
 
