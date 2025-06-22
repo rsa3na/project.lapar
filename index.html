@@ -77,35 +77,39 @@ nav a:hover {
   background: #ffc045;
 }
 
-.menu {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 40px 30px;
-}
+  .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 30px;
+      justify-content: center;
+    }
 
-.menu-item {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-}
+    .menu-item {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 220px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
 
-.menu-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
 
-.menu-item img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
 
 .form-section {
   padding: 40px 20px;
@@ -249,8 +253,8 @@ footer .bottom {
 
 <!-- Hero -->
 <div class="hero">
-  <h2>Selamat Datang!</h2>
-  <p>Menu Lezat, Harga Bersahabat 🍜</p>
+  <h2>Kenangan Rasa!</h2>
+  <p>Ketika Lapar Menjadi Cerita</p>
   <button onclick="document.getElementById('pesan').scrollIntoView({behavior: 'smooth'})">Pesan Sekarang</button>
 </div>
 
