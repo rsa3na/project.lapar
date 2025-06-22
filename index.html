@@ -79,9 +79,9 @@ nav a:hover {
 
 .menu {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 40px 20px;
+  padding: 40px 30px;
 }
 
 .menu-item {
@@ -91,6 +91,7 @@ nav a:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
 
 .menu-item:hover {
@@ -110,6 +111,10 @@ nav a:hover {
   padding: 40px 20px;
   text-align: center;
   background: #fff1e6;
+}
+
+.form-section h2 {
+  margin-bottom: 20px;
 }
 
 form {
@@ -191,8 +196,7 @@ footer .bottom {
   padding: 30px;
   border-radius: 12px;
   text-align: center;
-  width: 90%;
-  max-width: 300px;
+  width: 300px;
 }
 
 .popup img {
@@ -201,7 +205,26 @@ footer .bottom {
   margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-item {
+    width: 100%;
+  }
+
+  .popup-content {
+    width: 90%;
+  }
+
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -215,78 +238,192 @@ footer .bottom {
   </style>
 </head>
 <body>
-  <header>
-    <h2>Kenangan Rasa</h2>
-    <nav>
-      <a href="#menu">Menu</a>
-      <a href="#pesan">Pesan</a>
-    </nav>
-  </header>  <section class="hero">
-    <h2>Kenangan Rasa!</h2>
-    <p>Ketika Lapar Menjadi Cerita</p>
-    <button onclick="document.getElementById('pesan').scrollIntoView({behavior:'smooth'})">Pesan Sekarang</button>
-  </section>  <section id="menu" class="menu">
-    <div class="menu-item" onclick="showPopup('Nasi Goreng', 'Rp 10.000', 'https://img.lovepik.com/photo/48018/1843.jpg_wh860.jpg')">
-      <img src="https://img.lovepik.com/photo/48018/1843.jpg_wh860.jpg" alt="Nasi Goreng">
-      <h3>Nasi Goreng</h3>
-      <p>Rp 10.000</p>
-    </div>
+<<header>
+  <h1>🍽 Kenangan Rasa</h1>
+  <nav>
+    <a href="#menu">Menu</a>
+   <a href="#review">Review</a>
+    <a href="#pesan">Pesan</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <h2>Selamat Datang!</h2>
+  <p>Menu Lezat, Harga Bersahabat 🍜</p>
+  <button onclick="document.getElementById('pesan').scrollIntoView({behavior: 'smooth'})">Pesan Sekarang</button>
+</div>
+
+<!-- Cerita Kenangan -->
+<section style="background: #fff7ec; padding: 60px 20px; text-align: center;">
+  <h2 style="color: #e65959; font-size: 2rem; margin-bottom: 15px;">Cerita di Balik Kenangan Rasa</h2>
+  <p style="max-width: 750px; margin: auto; font-size: 1.1rem; line-height: 1.8; color: #444;">
+    Semua berawal dari dapur kecil milik nenek yang penuh cinta dan aroma masakan rumahan.  
+    Kami percaya, setiap rasa punya kisah — dan di sinilah, <strong>“Kenangan Rasa”</strong> hadir untuk 
+    menemani setiap cerita laparmu menjadi kenangan manis yang tak terlupa.
+  </p>
+</section>
+
+<!-- Menu -->
+<section id="menu" class="menu">
+  <div class="menu-item" onclick="showPopup('Nasi Goreng', 'Rp 10.000', 'https://img.lovepik.com/photo/48018/1843.jpg_wh860.jpg')">
+    <img src="https://img.lovepik.com/photo/48018/1843.jpg_wh860.jpg" alt="Nasi Goreng">
+    <h3>Nasi Goreng</h3>
+    <p>Rp 10.000</p>
+  </div>
+    <div class="menu-item" onclick="showPopup('Nasi Remes', 'Rp 10.000', 'https://cdn.idntimes.com/content-images/community/2021/07/918655976-e6b2230e908fbc72b6db8959e2c8d830-afee3d6ecd26f3159624dd44348ba8d4.jpg')">
+    <img src="https://cdn.idntimes.com/content-images/community/2021/07/918655976-e6b2230e908fbc72b6db8959e2c8d830-afee3d6ecd26f3159624dd44348ba8d4.jpg" alt="Nasi Remes">
+    <h3>Nasi Remes</h3>
+    <p>Rp 10.000</p>
+  </div>
+
+    
+  <div class="menu-item" onclick="showPopup('Nasi Kebuli', 'Rp 15.000', 'http://3.bp.blogspot.com/-05gbBoyd1xQ/UHJq08zFupI/AAAAAAAAAKg/QtHq_mj1CkY/s1600/Nasi+kebuli++filet+ayam')">
+    <img src="http://3.bp.blogspot.com/-05gbBoyd1xQ/UHJq08zFupI/AAAAAAAAAKg/QtHq_mj1CkY/s1600/Nasi+kebuli++filet+ayam" alt="Nasi Kebuli">
+    <h3>Nasi Kebuli</h3>
+    <p>Rp 15.000</p>
+  </div>
+
+    <div class="menu-item" onclick="showPopup('Nasi Arab', 'Rp 15.000', 'https://1.bp.blogspot.com/-iKXmcpsiVXA/VGG0XM0zaSI/AAAAAAAAADg/ord30T1SQh8/s1600/nasi%2Barab.JPG')">
+    <img src="https://1.bp.blogspot.com/-iKXmcpsiVXA/VGG0XM0zaSI/AAAAAAAAADg/ord30T1SQh8/s1600/nasi%2Barab.JPG" alt="Nasi Arab">
+    <h3>Nasi Arab</h3>
+    <p>Rp 15.000</p>
+  </div>
+
+  
+    <div class="menu-item" onclick="showPopup('Ayam Geprek', 'Rp 12.000', 'https://uangonline.com/wp-content/uploads/2018/07/foto_utama_ayam_geprek.jpg')">
+    <img src="https://uangonline.com/wp-content/uploads/2018/07/foto_utama_ayam_geprek.jpg" alt="Ayam Geprek">
+    <h3>Ayam Geprek</h3>
+    <p>Rp 12.000</p>
+  </div>
+
+   <div class="menu-item" onclick="showPopup('Ikan Bakar', 'Rp 15.000', 'https://blog.tokowahab.com/wp-content/uploads/2021/04/Resep-Ikan-Bakar-Gurame-di-Blog.tokowahab-1.png')">
+    <img src="https://blog.tokowahab.com/wp-content/uploads/2021/04/Resep-Ikan-Bakar-Gurame-di-Blog.tokowahab-1.png" alt="Ikan Bakar">
+    <h3>Ikan Bakar</h3>
+    <p>Rp 15.000</p>
+  </div>
+
     <div class="menu-item" onclick="showPopup('Ayam Bakar', 'Rp 20.000', 'http://1.bp.blogspot.com/-rFgRwcB-qJw/UtNNEkWIzPI/AAAAAAAABdg/E09Hu9KOpmU/s1600/Ayam+Bakar.jpg')">
-      <img src="http://1.bp.blogspot.com/-rFgRwcB-qJw/UtNNEkWIzPI/AAAAAAAABdg/E09Hu9KOpmU/s1600/Ayam+Bakar.jpg" alt="Ayam Bakar">
-      <h3>Ayam Bakar</h3>
-      <p>Rp 20.000</p>
+    <img src="http://1.bp.blogspot.com/-rFgRwcB-qJw/UtNNEkWIzPI/AAAAAAAABdg/E09Hu9KOpmU/s1600/Ayam+Bakar.jpg" alt="Ayam Bakar">
+    <h3>Ayam Bakar</h3>
+    <p>Rp 20.000</p>
+  </div>
+
+    <div class="menu-item" onclick="showPopup('Bebek Bakar', 'Rp 25.000', 'https://2.bp.blogspot.com/-awByoXSBxPA/UpFGFoTaPXI/AAAAAAAAAeY/YBkOWsQCtWc/s1600/bebek+bakar.jpg')">
+    <img src="https://2.bp.blogspot.com/-awByoXSBxPA/UpFGFoTaPXI/AAAAAAAAAeY/YBkOWsQCtWc/s1600/bebek+bakar.jpg" alt="Bebek Bakar">
+    <h3>Bebek Bakar</h3>
+    <p>Rp 25.000</p>
+  </div>
+
+      <div class="menu-item" onclick="showPopup('Soto', 'Rp 12.000', 'https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_800/w_74,x_13,y_13,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/i4bwds1lkviawiepsegv/JakartaNightTour:GuidedSightseeingandStreetFoodExperience.jpg')">
+    <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_800/w_74,x_13,y_13,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/i4bwds1lkviawiepsegv/JakartaNightTour:GuidedSightseeingandStreetFoodExperience.jpg" alt="Soto">
+    <h3>Soto</h3>
+    <p>Rp 12.000</p>
+  </div>
+
+  
+      <div class="menu-item" onclick="showPopup('Indomie Goreng', 'Rp 8.000', 'https://img-global.cpcdn.com/recipes/6f95962c5a6094a7/751x532cq70/indomie-goreng-nyemek-foto-resep-utama.jpg')">
+    <img src="https://img-global.cpcdn.com/recipes/6f95962c5a6094a7/751x532cq70/indomie-goreng-nyemek-foto-resep-utama.jpg" alt="Indomie Goreng">
+    <h3>Indomie Goreng</h3>
+    <p>Rp 8.000</p>
+  </div>
+
+        <div class="menu-item" onclick="showPopup('Es Teh Manis / Hangat', 'Rp 5.000', 'https://mtssunankalijogo.sch.id/wp-content/uploads/2020/11/es.jpg')">
+    <img src="https://mtssunankalijogo.sch.id/wp-content/uploads/2020/11/es.jpg" alt="Es Teh Manis / Hangat">
+    <h3>Es Teh Manis / Hangat</h3>
+    <p>Rp 5.000</p>
+  </div>
+
+          <div class="menu-item" onclick="showPopup('Es Jeruk Manis ', 'Rp 5.000', 'https://dcostseafood.id/wp-content/uploads/2021/12/ES-JERUK-murni.jpg')">
+    <img src="https://dcostseafood.id/wp-content/uploads/2021/12/ES-JERUK-murni.jpg" alt="Es Jeruk Manis">
+    <h3>Es Jeruk Manis</h3>
+    <p>Rp 5.000</p>
+  </div>
+
+</section>
+
+<!-- Pop-up Menu -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <img id="popup-img" src="" alt="Menu">
+    <h3 id="popup-title">Menu</h3>
+    <p id="popup-price">Harga</p>
+    <button onclick="hidePopup()">Tutup</button>
+  </div>
+</div>
+
+<!-- Form Pemesanan -->
+<section id="pesan" class="form-section">
+  <h2 style="color: #e65959;">Form Pemesanan</h2>
+  <form onsubmit="event.preventDefault(); alert('Pesanan Anda telah dikirim!'); this.reset();">
+    <input type="text" placeholder="Nama Lengkap" required>
+    <input type="text" placeholder="Menu yang Dipesan" required>
+    <input type="number" placeholder="Jumlah" required>
+    <button type="submit">Kirim Pesanan</button>
+  </form>
+</section>
+    
+<!-- Review Pelanggan -->
+<section id="review" class="review-section" style="background: #fffaf4; padding: 60px 20px; text-align: center;">
+  <h2 style="color: #e65959; font-size: 2rem; margin-bottom: 30px;">Apa Kata Mereka?</h2>
+  <div class="review-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: auto;">
+    <div class="review-box" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 280px;">
+      <img src="https://i.pravatar.cc/80?img=47" alt="Siti" style="border-radius: 50%; margin-bottom: 10px;">
+      <p><em>“Nasi Gorengnya enak banget, porsinya juga pas!”</em></p>
+      <strong>– Siti</strong>
     </div>
-    <div class="menu-item" onclick="showPopup('Es Jeruk', 'Rp 5.000', 'https://dcostseafood.id/wp-content/uploads/2021/12/ES-JERUK-murni.jpg')">
-      <img src="https://dcostseafood.id/wp-content/uploads/2021/12/ES-JERUK-murni.jpg" alt="Es Jeruk">
-      <h3>Es Jeruk</h3>
-      <p>Rp 5.000</p>
+    <div class="review-box" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 280px;">
+      <img src="https://i.pravatar.cc/80?img=33" alt="Riko" style="border-radius: 50%; margin-bottom: 10px;">
+      <p><em>“Ikan bakarnya juicy dan bumbunya mantap.”</em></p>
+      <strong>– Riko</strong>
     </div>
-  </section>  <section id="pesan" class="form-section">
-    <h2>Form Pemesanan</h2>
-    <form onsubmit="event.preventDefault(); alert('Pesanan Anda telah dikirim!');">
-      <input type="text" placeholder="Nama Lengkap" required>
-      <input type="text" placeholder="Menu yang Dipesan" required>
-      <input type="number" placeholder="Jumlah" required>
-      <button type="submit">Kirim Pesanan</button>
-    </form>
-  </section>  <footer>
-    <div class="container">
-      <div>
-        <h3>Kenangan Rasa</h3>
-        <p>Jl. Kenikmatan No. 88<br>Kota Lezat, Indonesia</p>
-        <p>Buka: Senin – Minggu<br>10.00 – 22.00 WIB</p>
-      </div>
-      <div>
-        <h4>Kontak</h4>
-        <p>Telp: <a href="tel:+628123456789">0812-3456-789</a></p>
-        <p>Email: info@kenanganrasa.com</p>
-      </div>
-      <div>
-        <h4>Ikuti Kami</h4>
-        <a href="#">Instagram</a><br>
-        <a href="#">Facebook</a><br>
-        <a href="#">WhatsApp</a>
-      </div>
+    <div class="review-box" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 280px;">
+      <img src="https://i.pravatar.cc/80?img=25" alt="Amel" style="border-radius: 50%; margin-bottom: 10px;">
+      <p><em>“Rasanya kaya masakan ibu. Bener-bener nostalgia.”</em></p>
+      <strong>– Amel</strong>
     </div>
-    <div class="bottom">
-      © 2025 Kenangan Rasa | Cita Rasa dalam Setiap Kenangan
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div>
+      <h3>Kenangan Rasa</h3>
+      <p>Jl. Kenikmatan No. 88<br>Kota Lezat, Indonesia</p>
+      <p>Buka: Senin – Minggu<br>10.00 – 22.00 WIB</p>
     </div>
-  </footer>  <div class="popup" id="popup">
-    <div class="popup-content">
-      <img id="popup-img" src="" alt="Gambar Menu">
-      <h3 id="popup-title">Menu</h3>
-      <p id="popup-price">Harga</p>
-      <button onclick="hidePopup()">Tutup</button>
+    <div>
+      <h4>Kontak</h4>
+      <p>Telp: <a href="tel:+628123456789">0812-3456-789</a></p>
+      <p>Email: info@kenanganrasa.com</p>
     </div>
-  </div>  <script>
-    function showPopup(title, price, img) {
-      document.getElementById("popup-title").textContent = title;
-      document.getElementById("popup-price").textContent = price;
-      document.getElementById("popup-img").src = img;
-      document.getElementById("popup").style.display = "flex";
-    }
-    function hidePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
-  </script></body>
+    <div>
+      <h4>Ikuti Kami</h4>
+      <a href="#">Instagram</a><br>
+      <a href="#">Facebook</a><br>
+      <a href="#">WhatsApp</a>
+    </div>
+  </div>
+  <div class="bottom">
+    © 2025 Kenangan Rasa | Cita Rasa dalam Setiap Kenangan
+  </div>
+</footer>
+
+<!-- Script Pop-up -->
+<script>
+  function showPopup(title, price, img) {
+    document.getElementById('popup-title').textContent = title;
+    document.getElementById('popup-price').textContent = price;
+    document.getElementById('popup-img').src = img;
+    document.getElementById('popup').style.display = 'flex';
+  }
+
+  function hidePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+</script>
+
+
+</body>
 </html>
