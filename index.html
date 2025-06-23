@@ -312,6 +312,19 @@ footer a {
     <button onclick="hidePopup()">Tutup</button>
   </div>
 </div>
+  
+  <!-- Pop-up Intro Menu -->
+<div class="popup" id="introPopup">
+  <div class="popup-content">
+    <h3>Menu Spesial Kenangan Rasa 🍽</h3>
+    <p style="margin: 15px 0;">
+      Kami menyajikan menu pilihan dari dapur penuh kenangan.  
+      Mulai dari <strong>nasi goreng nenek</strong> hingga <strong>bebek bakar legendaris</strong>,  
+      semua dibuat dengan rasa dan cerita yang tak terlupakan.  
+    </p>
+    <button onclick="goToMenu()">Lihat Menu</button>
+  </div>
+</div>
 
 <!-- Form Pemesanan -->
 <section id="pesan" class="form-section">
@@ -387,7 +400,14 @@ footer a {
     document.getElementById('popup-img').src = img;
     document.getElementById('popup').style.display = 'flex';
   }
+function showIntroPopup() {
+  document.getElementById("introPopup").style.display = "flex";
+}
 
+function goToMenu() {
+  hidePopup();
+  document.getElementById("menu").scrollIntoView({ behavior: 'smooth' });
+}
   function hidePopup() {
     document.getElementById('popup').style.display = 'none';
   }
