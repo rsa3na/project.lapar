@@ -16,10 +16,61 @@
 header {
   background: #ff6b6b;
   color: white;
-  padding: 12px 20px;
-  text-align: center;
+  padding: 15px 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   border-bottom: 1px solid #ffd6d6;
+  position: relative;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #ff6b6b;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: center;
+    z-index: 999;
+    padding: 10px 0;
+  }
+
+  nav a {
+    padding: 10px 0;
+    border-top: 1px solid #ff9999;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 
 nav a {
@@ -246,18 +297,17 @@ footer a {
 </head>
 <body>
 <header>
-  <div class="navbar">
+  <div class="header-container">
     <h1>🍽 Kenangan Rasa</h1>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburger">&#9776;</label>
-    <nav class="nav-links">
-      <a href="#beranda">Beranda</a>
-      <a href="#tentang">Tentang</a>
-      <a href="#menu">Menu</a>
-      <a href="#review">Ulasan</a>
-      <a href="#pesan">Pesan</a>
-    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   </div>
+  <nav id="navMenu">
+    <a href="#beranda">Beranda</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#menu">Menu</a>
+    <a href="#review">Ulasan</a>
+    <a href="#pesan">Pesan</a>
+  </nav>
 </header>
 
 <!-- Hero -->
@@ -481,6 +531,16 @@ function goToMenu() {
 }
   function hidePopup() {
     document.getElementById('popup').style.display = 'none';
+  }
+</script>
+  <script>
+  function toggleMenu() {
+    const nav = document.getElementById("navMenu");
+    if (nav.style.display === "flex") {
+      nav.style.display = "none";
+    } else {
+      nav.style.display = "flex";
+    }
   }
 </script>
 
