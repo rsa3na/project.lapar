@@ -11,6 +11,42 @@
   background: #fffaf4;
   color: #333;
   scroll-behavior: smooth;
+    
+}
+    .menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #ff6b6b;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav a {
+    padding: 12px 0;
+    border-top: 1px solid #ff9999;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header {
+    position: relative;
+  }
 }
 
 header {
@@ -246,18 +282,15 @@ footer a {
 </head>
 <body>
 <header>
-  <div class="navbar">
-    <h1>🍽 Kenangan Rasa</h1>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburger">&#9776;</label>
-    <nav class="nav-links">
-      <a href="#beranda">Beranda</a>
-      <a href="#tentang">Tentang</a>
-      <a href="#menu">Menu</a>
-      <a href="#review">Ulasan</a>
-      <a href="#pesan">Pesan</a>
-    </nav>
-  </div>
+  <h1>🍽 Kenangan Rasa</h1>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div> <!-- hamburger -->
+  <nav id="navMenu">
+    <a href="#beranda">Beranda</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#menu">Menu</a>
+    <a href="#review">Ulasan</a>
+    <a href="#pesan">Pesan</a>
+  </nav>
 </header>
 
 <!-- Hero -->
@@ -482,8 +515,15 @@ function goToMenu() {
   function hidePopup() {
     document.getElementById('popup').style.display = 'none';
   }
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navMenu");
+    if (nav.style.display === "flex") {
+      nav.style.display = "none";
+    } else {
+      nav.style.display = "flex";
+    }
+  }
 </script>
-
-
 </body>
 </html>
