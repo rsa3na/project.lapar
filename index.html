@@ -26,6 +26,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .menu-toggle {
@@ -70,6 +77,10 @@ nav a {
 
   .menu-toggle {
     display: block;
+  }
+
+  .brand {
+    font-size: 1.4rem;
   }
 }
 
@@ -298,7 +309,7 @@ footer a {
 <body>
 <header>
   <div class="header-container">
-    <h1>🍽 Kenangan Rasa</h1>
+    <h1 class="brand">🍽 Kenangan Rasa</h1>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   </div>
   <nav id="navMenu">
@@ -309,7 +320,6 @@ footer a {
     <a href="#pesan">Pesan</a>
   </nav>
 </header>
-
 <!-- Hero -->
 <div class="hero" id="beranda"> 
   <h2>Kenangan Rasa!</h2>
@@ -533,14 +543,10 @@ function goToMenu() {
     document.getElementById('popup').style.display = 'none';
   }
 </script>
-  <script>
+<script>
   function toggleMenu() {
     const nav = document.getElementById("navMenu");
-    if (nav.style.display === "flex") {
-      nav.style.display = "none";
-    } else {
-      nav.style.display = "flex";
-    }
+    nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
   }
 </script>
 
