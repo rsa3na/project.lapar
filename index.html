@@ -13,6 +13,46 @@
   scroll-behavior: smooth;
     
 }
+    .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #ff6b6b;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+  }
+
+  nav a {
+    padding: 12px 0;
+    border-top: 1px solid #ff9999;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header {
+    position: relative;
+  }
+}
     .menu-toggle {
   display: none;
   font-size: 26px;
@@ -282,8 +322,10 @@ footer a {
 </head>
 <body>
 <header>
-  <h1>🍽 Kenangan Rasa</h1>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div> <!-- hamburger -->
+  <div class="header-container">
+    <h1>🍽 Kenangan Rasa</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </div>
   <nav id="navMenu">
     <a href="#beranda">Beranda</a>
     <a href="#tentang">Tentang</a>
@@ -515,7 +557,7 @@ function goToMenu() {
   function hidePopup() {
     document.getElementById('popup').style.display = 'none';
   }
-
+<script>
   function toggleMenu() {
     const nav = document.getElementById("navMenu");
     if (nav.style.display === "flex") {
@@ -524,6 +566,6 @@ function goToMenu() {
       nav.style.display = "flex";
     }
   }
-  <script>
+</script>
 </body>
 </html>
